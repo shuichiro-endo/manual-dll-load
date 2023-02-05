@@ -77,7 +77,7 @@ typedef struct PEB32
 #endif
 */
 
-struct UNICODE_STRING
+typedef struct UNICODE_STRING
 {
 	USHORT Length;
 	USHORT MaximumLength;

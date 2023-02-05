@@ -6,20 +6,19 @@
 #include <stdio.h>
 #include <Windows.h>
 
-#include "struct.h"
 #include "winapi.h"
 #include "myapi.h"
 
 #include "test1dll.h"	// xxd -i test1.dll > test1dll.h
 #include "test2dll.h"	// xxd -i test2.dll > test2dll.h
 
-typedef int (* _func1)(int a);			// func1 function in test1.dll
+typedef int (* _func1)(int a);		// func1 function in test1.dll
 typedef int (* _func2)(int b, int c);	// func2 function in test2.dll
 
 
 int wmain(int argc, wchar_t *argv[])
 {
-	MANUAL_LOAD_DLL list[3];
+	MANUAL_LOAD_DLL list[3] = {{"\0", NULL}, {"\0", NULL}, {"\0", NULL}};
 	HMODULE address = NULL;
 
 	// load test1.dll
